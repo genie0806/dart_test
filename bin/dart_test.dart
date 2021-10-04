@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Hero {
   String name;
   int hp;
@@ -18,6 +20,18 @@ class Cleric extends Hero {
   void selfAid() {
     mp -= 5;
     hp = maxHp;
+  }
+
+  int pray(int sec) {
+    int recoveryMp = sec + Random().nextInt(3);
+
+    int beforeMp = mp; //회복전 mp
+    mp += recoveryMp; // 회복을 했고
+
+    if (maxMp < mp) {
+      mp = maxMp; //maxMp를 넘으면
+    }
+    return mp - beforeMp; //실제회복된 양
   }
 }
 
