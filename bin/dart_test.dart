@@ -14,6 +14,11 @@ class Cleric extends Hero {
   int mp = maxMp;
 
   Cleric(String name, int hp) : super(name, hp);
+
+  void selfAid() {
+    mp -= 5;
+    hp = maxHp;
+  }
 }
 
 void main() {
